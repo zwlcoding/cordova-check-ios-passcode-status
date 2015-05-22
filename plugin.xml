@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="net.qdkf.checkPasscode" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>checkPasscode</name>
+
+    <js-module name="checkPasscode" src="www/checkPasscode.js">
+        <clobbers target="cordova.plugins.checkPasscode"/>
+    </js-module>
+    
+    <platform name="ios">
+
+        <config-file parent="/*" target="config.xml">
+            <feature name="checkPasscode">
+                <param name="ios-package" value="checkPasscode"/>
+            </feature>
+        </config-file>
+
+		<framework src="Security.framework" weak="true" />
+
+        <source-file src="src/ios/checkPasscode.m"/>
+        <source-file src="src/ios/UIDevice+PasscodeStatus.h"/>
+        <source-file src="src/ios/UIDevice+PasscodeStatus.m"/>
+
+    </platform>
+</plugin>
